@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JESUSSpark</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="particle-canvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
+    <div class="container">
+        <!-- Home Page -->
+        <div id="home" class="page">
+            <div class="header">
+                <h1>JESUSSpark</h1>
+                <p>Walk with Jesus in Faith</p>
+                <p class="description">Reflect on God’s Word: from Old Testament roots, to Jesus’ teachings, to living faithfully today.</p>
+            </div>
+            <h3>Today’s Teaching</h3>
+            <div class="teaching-window">
+                <p id="teaching-text"></p>
+            </div>
+            <button id="teaching-button" onclick="nextTeachingStage()">Reveal</button>
+            <p class="points">Faith Points: <span id="faith-points">0</span></p>
+        </div>
+
+        <!-- Faith Garden -->
+        <div id="garden" class="page" style="display: none;">
+            <h2>Your Faith Garden</h2>
+            <p class="description">Watch your faith flourish—vines for Old Testament wisdom, lilies for Jesus’ teachings, stars for living His Word.</p>
+            <canvas id="garden-canvas" width="300" height="300"></canvas>
+        </div>
+
+        <!-- Faith Reflection -->
+        <div id="mood" class="page" style="display: none;">
+            <h2>Faith Reflection</h2>
+            <p class="description">Reflect on how Jesus’ teachings bring peace to your heart and strength to your spirit.</p>
+            <h3>Body in Christ</h3>
+            <select id="body-mood">
+                <option value="Strengthened by Faith">Strengthened by Faith</option>
+                <option value="Weary but Hopeful">Weary but Hopeful</option>
+                <option value="Resting in Him">Resting in Him</option>
+            </select>
+            <h3>Heart in Christ</h3>
+            <select id="heart-mood">
+                <option value="Close to Jesus">Close to Jesus</option>
+                <option value="Seeking His Light">Seeking His Light</option>
+                <option value="Growing in Faith">Growing in Faith</option>
+            </select>
+            <button onclick="logMood()">Log Reflection</button>
+            <p id="mood-history"></p>
+        </div>
+
+        <!-- Faith Feed -->
+        <div id="feed" class="page" style="display: none;">
+            <h2>Faith Feed</h2>
+            <p class="description">Connect with others’ reflections on Jesus’ teachings, celebrating lives transformed by His Word.</p>
+            <ul id="spark-feed">
+                <li>Start your faith journey!</li>
+            </ul>
+        </div>
+
+        <!-- Faith Journey -->
+        <div id="calendar" class="page" style="display: none;">
+            <h2>Your Faith Journey</h2>
+            <p class="description">Track your walk with Jesus—green for Old Testament, red for Jesus’ teachings, gold for living His Word, blue for reflections.</p>
+            <div id="calendar-header">
+                <button onclick="changeMonth(-1)">Prev</button>
+                <h3 id="calendar-month"></h3>
+                <button onclick="changeMonth(1)">Next</button>
+            </div>
+            <div id="calendar-grid"></div>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <button id="nav-home" onclick="showPage('home')">Home</button>
+            <button id="nav-garden" onclick="showPage('garden')">Faith Garden</button>
+            <button id="nav-mood" onclick="showPage('mood')">Faith Reflection</button>
+            <button id="nav-feed" onclick="showPage('feed')">Faith Feed</button>
+            <button id="nav-calendar" onclick="showPage('calendar')">Faith Journey</button>
+            <button id="audio-toggle" onclick="toggleAudio()">🔊 Play Audio</button>
+        </nav>
+    </div>
+
+    <audio id="background-audio" loop>
+        <source src="jesusspark_hymn.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
